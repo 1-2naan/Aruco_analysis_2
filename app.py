@@ -72,6 +72,7 @@ for uploaded_file in uploaded_files:
     st.write(f"Processing file: {uploaded_file.name}")
 
     df = pd.read_csv(uploaded_file)
+    df=df.iloc[:, :5]
     df.columns=['X','Y','Z','T','Frame_num']
     df['Timestamp'] = df['Frame_num'] / 60  # Assuming 60 FPS for simplicity
     df['X1'] = df['X'] - df['X'][0]
